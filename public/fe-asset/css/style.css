@@ -1,0 +1,264 @@
+/* Reset styles */
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    background-color: #000;
+    color: #fff;
+}
+
+.top-bar {
+    padding: 10px 0;
+    text-align: right;
+    font-size: 14px;
+    background-color: #222;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.main-header {
+    padding: 20px 0;
+    text-align: center; /* Căn giữa logo */
+}
+
+.logo {
+    font-size: 36px; /* Tăng kích thước chữ */
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: #e74c3c;
+}
+
+/* Navigation */
+.navigation {
+    text-align: center; /* Căn giữa thanh điều hướng */
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    display: inline-flex; /* Hiển thị các mục điều hướng theo hàng ngang */
+    gap: 20px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+    text-decoration: underline;
+    color: #e74c3c;
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: none;
+}
+
+.slides img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index: 100;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Banner Section */
+.discount-banner {
+    background-color: #e74c3c;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin: 40px 0;
+}
+
+.discount-banner h2 {
+    font-size: 32px;
+}
+
+.discount-banner button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #e74c3c;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.discount-banner button:hover {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+/* Common Styles for Product Sections */
+.products,
+.discount-products {
+    padding: 40px 0;
+    background-color: #f8f8f8; /* Đồng bộ nền */
+}
+
+.products h2,
+.discount-products h2 {
+    text-align: center; /* Căn giữa tiêu đề */
+    font-size: 32px; /* Tăng kích thước tiêu đề */
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(250px, 1fr)
+    ); /* Bố cục lưới */
+    gap: 20px;
+    max-width: 1200px; /* Giới hạn chiều rộng */
+    margin: auto; /* Căn giữa sản phẩm */
+}
+
+.product-item {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #e74c3c;
+}
+
+.product-item button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.product-item button:hover {
+    background-color: #e74c3c;
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer div {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer p,
+.footer input,
+.footer button {
+    font-size: 14px;
+}
+
+.footer input {
+    padding: 10px;
+    width: 80%;
+    margin-right: 10px;
+}
+
+.footer button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #e74c3c;
+    color: #fff;
+    cursor: pointer;
+}
+
+.footer button:hover {
+    background-color: #c0392b;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
