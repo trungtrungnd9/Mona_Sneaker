@@ -25,26 +25,47 @@
 <body>
     <!-- Header Section -->
     <header class="header">
-        <div class="top-bar">
-            <div class="container">
-                @if (Auth::check())
-                    <h6>Xin chào: {{ Auth::user()->name }}</h6>
-                @else
-                    <a style="text-decoration: none" href="{{ route('login') }}">Đăng nhập </a>
-                @endif
-                <div>
-                    <a style="text-decoration: none" href="{{ route('cart.index') }}">Giỏ hàng</a>
-                    @if (Auth::check() && Auth::user()->role == 1)
-                        <a style="text-decoration: none" href="{{ route('logon') }}">Đăng nhập admin </a>
-                    @endif
+        <div class="top-bar py-2 bg-light border-bottom">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Phần chào mừng -->
+                <div class="d-flex align-items-center">
                     @if (Auth::check())
-                        <a style="text-decoration: none" href="{{ route('logout') }}">Đăng xuất </a>
+                        <h6 class="mb-0 me-3 text-secondary">Xin chào: <strong>{{ Auth::user()->name }}</strong></h6>
+                    @else
+                        <a href="{{ route('login') }}" class="text-decoration-none text-secondary fw-semibold">Đăng
+                            nhập</a>
                     @endif
                 </div>
 
+                <!-- Phần liên kết -->
+                <div class="d-flex align-items-center gap-3">
 
+
+                    @if (Auth::check())
+                        <a href="{{ route('cart.index') }}" class="text-decoration-none text-secondary fw-semibold">
+                            <i class="bi bi-cart me-1"></i>Giỏ hàng
+                        </a>
+                        <a href="{{ route('orders.show') }}" class="text-decoration-none text-secondary fw-semibold">
+                            <i class="bi bi-bag-check me-1"></i>Đơn hàng của bạn
+                        </a>
+                    @endif
+
+                    @if (Auth::check() && Auth::user()->role == 1)
+                        <a href="{{ route('logon') }}" class="text-decoration-none text-secondary fw-semibold">
+                            <i class="bi bi-shield-lock me-1"></i>Admin
+                        </a>
+                    @endif
+
+                    @if (Auth::check())
+                        <a href="{{ route('logout') }}" class="text-decoration-none text-danger fw-semibold">
+                            <i class="bi bi-box-arrow-right me-1"></i>Đăng xuất
+                        </a>
+                    @endif
+                </div>
             </div>
         </div>
+
+
         <div class="main-header">
             <div class="container">
                 <h1 class="logo">MONA <span>SNEAKER</span></h1>

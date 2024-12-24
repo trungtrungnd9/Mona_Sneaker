@@ -108,4 +108,25 @@ class CartController extends Controller
     {
         return view('fe.thank_you');
     }
+
+    public function orderShow()
+    {
+        $orders = Order::get();
+        return view('fe.orders', compact('orders',));
+    }
+
+    public function showDetail($id)
+    {
+        $order = Order::with('details')->findOrFail($id);
+        return view('fe.orderDetail', compact('order'));
+    }
+
+    public function orderDelete(Request $request, $id)
+    {
+        $order = Order::findOrFail($id);
+        $order->update(
+            $request->all()
+        );
+        return redirect()->route('orders.show');
+    }
 }

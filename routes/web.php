@@ -45,12 +45,15 @@ Route::post('/logon', [AdminController::class, 'postLogon'])->name('admin.logon'
 Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::get('/', [DashBroadController::class, 'index'])->name('admin.index');
     Route::resource('/category', CategoryController::class);
-    Route::resource('/product', ProductController::class);
-    Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+    // Route::resource('/product', ProductController::class);
+    // Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('admin.orders.show');
-    Route::post('/orders/{id}/update', [OrderController::class, 'update'])->name('admin.orders.update');
+    // Route::post('/orders/{id}/update', [OrderController::class, 'update'])->name('admin.orders.update');
 });
 
+Route::get('/orders', [CartController::class, 'orderShow'])->name('orders.show');
+Route::get('/orders/{order}', [CartController::class, 'showDetail'])->name('orders.showDetails');
+Route::put('/orders/{order}', [CartController::class, 'orderDelete'])->name('orders.delete');
 Route::post('/add-cart', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
