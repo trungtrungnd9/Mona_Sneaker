@@ -85,6 +85,7 @@ class CartController extends Controller
             'phone' => $request->phone,
             'total_price' => array_sum(array_column($cartItems, 'price')),
             'items' => $cartItems,
+            'user_id' => auth()->id(),
             'created_at' => now(),
         ]);
 
@@ -111,7 +112,7 @@ class CartController extends Controller
 
     public function orderShow()
     {
-        $orders = Order::get();
+        $orders = Order::where('user_id', auth()->id())->get();
         return view('fe.orders', compact('orders',));
     }
 
@@ -124,9 +125,7 @@ class CartController extends Controller
     public function orderDelete(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        $order->update(
-            $request->all()
-        );
+        $order->update($request->all());
         return redirect()->route('orders.show');
     }
 }

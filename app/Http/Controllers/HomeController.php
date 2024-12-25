@@ -9,11 +9,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $spnoibats = Product::where('stock', 1)->paginate(8);
-        $products = Product::where('category_id', 2)->paginate(4);
-        $products_sale = Product::where('stock', 0)
-            ->where('category_id', 1)
-            ->paginate(4);
+        $spnoibats = Product::where('stock', 1)->paginate(10);
+        $products = Product::where('category_id', 2)->paginate(5);
+        $products_sale = Product::whereNotNull('price_sale')
+            ->paginate(5);
         return view('fe.home', compact('spnoibats', 'products', 'products_sale'));
     }
 
@@ -23,7 +22,7 @@ class HomeController extends Controller
     }
     public function nam()
     {
-        $products = Product::where('pl', 0)->paginate(8);
+        $products = Product::where('pl', 0)->paginate(10);
         return view('fe.phanloai', compact('products'));
     }
     public function nu()

@@ -45,10 +45,10 @@ Route::post('/logon', [AdminController::class, 'postLogon'])->name('admin.logon'
 Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::get('/', [DashBroadController::class, 'index'])->name('admin.index');
     Route::resource('/category', CategoryController::class);
-    // Route::resource('/product', ProductController::class);
-    // Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
-    Route::get('/orders/{id}', [OrderController::class, 'show'])->name('admin.orders.show');
-    // Route::post('/orders/{id}/update', [OrderController::class, 'update'])->name('admin.orders.update');
+    Route::resource('/product', ProductController::class);
+    Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
+    Route::put('/orders/{order}/status', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 });
 
 Route::get('/orders', [CartController::class, 'orderShow'])->name('orders.show');
